@@ -1,5 +1,5 @@
 from gql import Client
-from gql.transport.aiohttp import AIOHTTPTransport
+from gql.transport.requests import RequestsHTTPTransport
 
 from .models import TotalStatistics
 from .querys import get_total_statistics_query
@@ -11,7 +11,7 @@ class fastcupy:
     '''
     def __init__(self):
         self._url = 'https://hasura.fastcup.net/v1/graphql'
-        self._transport = AIOHTTPTransport(url=self._url)
+        self._transport = RequestsHTTPTransport(url=self._url)
         self._client = Client(transport=self._transport)
 
     def _send_request(self, query: str, variables: dict) -> dict:
