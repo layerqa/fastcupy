@@ -1,5 +1,7 @@
 # FASTCUPY
 Unofficial python fascup module
+[![GitHub Issues](https://img.shields.io/github/issues/layerqa/fastcupy)](https://github.com/layerqa/fastcupy/issues)
+[![GitHub LICENSE](https://img.shields.io/github/license/layerqa/fastcupy)](https://github.com/layerqa/fastcupy/blob/main/LICENSE)
 
 ------------
 

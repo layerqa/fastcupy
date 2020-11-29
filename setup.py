@@ -27,5 +27,5 @@ setup(
     install_requires=get_requirements(),
     license=__license__,
     packages=['fastcupy'],
-    python_requires='>=3.8'
+    python_requires='>=3.7'
 )
