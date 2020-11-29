@@ -30,4 +30,12 @@ print(
     f'Users played: {data.users_played_count}',
     sep='\n'
 )
+
+# Matches: 391469
+# Matches created: 26
+# Matches live: 104
+# Users search: 32
+# Users in game: 746
+# Users online: 1197
+# Users player: 104148
 ```
