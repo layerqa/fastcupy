@@ -27,7 +27,7 @@ print(
     f'Users search: {data.users_in_search}',
     f'Users in game: {data.users_ingame_count}',
     f'Users online: {data.users_online_count}',
-    f'Users player: {data.users_played_count}',
+    f'Users played: {data.users_played_count}',
     sep='\n'
 )
 ```
