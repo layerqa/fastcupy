@@ -3,6 +3,13 @@ Unofficial python fascup module
 
 ------------
 
+### **Install**
+```
+$ pip install git+https://github.com/layerqa/fastcupy
+```
+
+------------
+
 ### **Usage example**
 
 ```python
