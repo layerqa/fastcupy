@@ -1,6 +1,7 @@
 class TotalStatistics:
     def __init__(self, data: dict) -> None:
-        """Total statistics details
+        '''
+        Total statistics details
         Attributes
         ----------
         matches_live_count: int
@@ -10,7 +11,7 @@ class TotalStatistics:
         users_online_count: int
         users_in_search: int
         users_ingame_count: int
-        """
+        '''
         self.matches_live_count = data['statisticsTotal']['matchesLiveCount']
         self.matches_created_count = data['statisticsTotal']['matchesCreatedCount']
         self.matches_count = data['statisticsTotal']['matchesCount']
