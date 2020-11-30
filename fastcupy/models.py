@@ -1,3 +1,5 @@
+import typing
+
 class TotalStatistics:
     def __init__(self, data: dict) -> None:
         '''
@@ -12,13 +14,13 @@ class TotalStatistics:
         users_in_search: int
         users_ingame_count: int
         '''
-        self.matches_live_count: int = data['statisticsTotal']['matchesLiveCount']
-        self.matches_created_count: int = data['statisticsTotal']['matchesCreatedCount']
-        self.matches_count: int = data['statisticsTotal']['matchesCount']
-        self.users_played_count: int = data['statisticsTotal']['usersPlayedCount']
-        self.users_online_count: int = data['statisticsTotal']['usersOnlineCount']
-        self.users_in_search: int = data['statisticsTotal']['usersInSearch']
-        self.users_ingame_count: int = data['statisticsTotal']['usersIngameCount']
+        self.matches_live_count: int = int(data['statisticsTotal']['matchesLiveCount'])
+        self.matches_created_count: int = int(data['statisticsTotal']['matchesCreatedCount'])
+        self.matches_count: int = int(data['statisticsTotal']['matchesCount'])
+        self.users_played_count: int = int(data['statisticsTotal']['usersPlayedCount'])
+        self.users_online_count: int = int(data['statisticsTotal']['usersOnlineCount'])
+        self.users_in_search: int = int(data['statisticsTotal']['usersInSearch'])
+        self.users_ingame_count: int = int(data['statisticsTotal']['usersIngameCount'])
 
 class GetUser:
     def __init__(self, data: dict) -> None:
@@ -42,36 +44,36 @@ class GetUser:
         :friends_count: int
         '''
         data = data['users'][0]
-        self.user_id: int = data['id']
-        self.nick_name: str = data['nickName']
-        self.avatar: str = data['avatar']
-        self.online: bool = data['online']
-        self.is_mobile: bool = data['isMobile']
+        self.user_id: int = int(data['id'])
+        self.nick_name: str = str(data['nickName'])
+        self.avatar: str = str(data['avatar'])
+        self.online: bool = bool(data['online'])
+        self.is_mobile: bool = bool(data['isMobile'])
         self.link: [str, None] = data['link']
-        self.stats: list = data['stats']
-        self.bans: list = data['bans']
+        self.stats: typing.List[int, str] = list(data['stats'])
+        self.bans: typing.List[int, str] = list(data['bans'])
         self.city = City(data['city'])
         self.country = Country(data['country'])
-        self.steam_id: int = data['steamID']
+        self.steam_id: int = int(data['steamID'])
         self.first_name: [str, None] = data['firstName']
         self.last_name: [str, None] = data['lastName']
-        self.last_ctivity: str = data['lastActivity']
-        self.created_at: str = data['createdAt']
-        self.friends_count: int = data['friendsCount']
+        self.last_ctivity: str = str(data['lastActivity'])
+        self.created_at: str = str(data['createdAt'])
+        self.friends_count: int = int(data['friendsCount'])
 
 class City:
     def __init__(self, city: dict) -> None:
-        self.city_id: int = city['id']
-        self.region_id: int = city['regionID']
-        self.name_ru: str = city['name_ru']
-        self.name_en: str = city['name_en']
+        self.city_id: int = int(city['id'])
+        self.region_id: int = int(city['regionID'])
+        self.name_ru: str = str(city['name_ru'])
+        self.name_en: str = str(city['name_en'])
 
 class Country:
     def __init__(self, country: dict) -> None:
-        self.country_id: int = country['id']
-        self.iso2: str = country['iso2']
-        self.name_ru: str = country['name_ru']
-        self.name_en: str = country['name_en']
+        self.country_id: int = int(country['id'])
+        self.iso2: str = str(country['iso2'])
+        self.name_ru: str = str(country['name_ru'])
+        self.name_en: str = str(country['name_en'])
 
 class Stats:
     def __init__(self, stats: dict) -> None:
