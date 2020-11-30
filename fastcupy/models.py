@@ -49,14 +49,14 @@ class GetUser:
         self.avatar: str = str(data['avatar'])
         self.online: bool = bool(data['online'])
         self.is_mobile: bool = bool(data['isMobile'])
-        self.link: [str, None] = data['link']
+        self.link = data['link']
         self.stats: typing.List[int, str] = list(data['stats'])
         self.bans: typing.List[int, str] = list(data['bans'])
         self.city = City(data['city'])
         self.country = Country(data['country'])
         self.steam_id: int = int(data['steamID'])
-        self.first_name: [str, None] = data['firstName']
-        self.last_name: [str, None] = data['lastName']
+        self.first_name = data['firstName']
+        self.last_name = data['lastName']
         self.last_ctivity: str = str(data['lastActivity'])
         self.created_at: str = str(data['createdAt'])
         self.friends_count: int = int(data['friendsCount'])
