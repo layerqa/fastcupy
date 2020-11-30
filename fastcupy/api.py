@@ -2,8 +2,8 @@ from gql import Client
 from gql.transport.requests import RequestsHTTPTransport
 
 from .exceptions import GameIdError
-from .models import TotalStatistics
-from .querys import get_total_statistics_query
+from .models import TotalStatistics, GetUser
+from .querys import get_total_statistics_query, get_user
 
 
 class fastcupy:
@@ -36,7 +36,21 @@ class fastcupy:
         :game_id: int
         1 = CSGO, 2 = CS 1.6
         '''
-        variables = {"gameID": self._check_game_id(game_id)}
+        variables = {'gameID': self._check_game_id(game_id)}
         return TotalStatistics(self._send_request(
             query=get_total_statistics_query, variables=variables
+        ))
+    
+    def get_user(self, game_id: int, user_id: int) -> GetUser:
+        '''
+        Get user
+        :game_id: int
+        1 = CSGO, 2 = CS 1.6
+        :user_id: int
+        '''
+        variables = {
+            'gameID': self._check_game_id(game_id), 'id': user_id
+        }
+        return GetUser(self._send_request(
+            query=get_user, variables=variables
         ))
